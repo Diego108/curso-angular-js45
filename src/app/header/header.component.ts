@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  private _isActive: boolean;
+  private _isActiveMenu: boolean;
 
   constructor() { }
 
@@ -18,6 +18,6 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMenu(){
-    this._isActive = !this._isActive;
+    this._isActiveMenu = !this._isActiveMenu;
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Email } from './model/email';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,11 @@ export class AppComponent {
    */
   private email: Email = new Email();
 
+  /**
+   * Campo declarado como lista e-mail para fins de adição de e-mails escritos.
+   */
+  private emailList: Email[] = [];
+
   toggleEmail(){
     this._isNewEmailOpen = !this._isNewEmailOpen;
   }
@@ -26,9 +32,16 @@ export class AppComponent {
     return this._isNewEmailOpen;
   }
 
-  setValue(event, key: string){
+  handleEmail(formEmail: NgForm){
 
-    this.email[key] = event.target.value;
-    console.log(this.email);
+    if(formEmail.valid){
+      event.preventDefault();
+      
+      this.emailList.push(this.email);
+      this.email = {};
+
+      formEmail.reset();
+      this.toggleEmail();
+    }
   }
 }
