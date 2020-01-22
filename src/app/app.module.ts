@@ -4,16 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { ModuleRoteamento } from './app.routes';
+import { ComponentsModule } from './modules/components.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ComponentsModule,
+    ModuleRoteamento
   ],
   providers: [],
   bootstrap: [AppComponent]
