@@ -2,17 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ModuleRoteamento } from './app.routes';
+import { ModuleRoteamento } from './modules/app.routes';
 import { ComponentsModule } from './modules/components.module';
-import { LoginComponent } from './login/login.component';
-
+import { HeaderComponent } from './components/header/header.component';
+import { FormFieldDirective } from './components/form-group/directives/form-field.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    FormFieldDirective
   ],
   imports: [
     BrowserModule,

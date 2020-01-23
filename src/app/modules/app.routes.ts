@@ -1,12 +1,17 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { CadastroComponent } from './modules/cadastro/cadastro.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
-import { CaixaDeEntradaComponent } from './modules/caixa-de-entrada/caixa-de-entrada.component';
+import { CaixaDeEntradaComponent } from './caixa-de-entrada/caixa-de-entrada.component';
 
 const rotas: Routes = [
     {
         path: '',
+        pathMatch:'full',
+        redirectTo: 'inbox'
+    },
+    {
+        path: 'login',
         component: LoginComponent 
     },
     {

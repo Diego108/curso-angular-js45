@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Email } from 'src/app/model/email';
+import { Email } from 'src/app/modules/caixa-de-entrada/model/email';
 
 @Component({
   selector: 'app-caixa-de-entrada',
