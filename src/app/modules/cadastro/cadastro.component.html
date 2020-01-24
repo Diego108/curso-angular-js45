@@ -1,37 +1,47 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <div class="mdl-grid">
-          <form>
-            <div class="mdl-card__actions">
-                <cmail-form-group>
-                    <input cmailFormField required autofocus type="text" name="nome" id="nome" placeholder="" 
-                    class="mdl-textfield__input">
-                    <span class="mdl-textfield__error">Informar um nome é obrigatório!</span>
-                </cmail-form-group>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        <form [formGroup]="formularioDeCadastro" (ngSubmit)="handleCadastroUsuario()">
+          <div class="mdl-card__actions">
+            <cmail-form-group [campo]="formularioDeCadastro.get('nome')">
+              <input name="nome" formControlName="nome" cmailFormField required autofocus type="text" placeholder=""
+                class="mdl-textfield__input">
+              <span class="mdl-textfield__error" *ngIf="formularioDeCadastro.get('nome').getError('required')">O campo é
+                obrigatório</span>
+              <span class="mdl-textfield__error" *ngIf="formularioDeCadastro.get('nome').getError('minlength')">O
+                tamanho é menor que 5 -Tamanho atual:
+                {{formularioDeCadastro.get('nome').getError('minlength').actualLength}}</span>
+            </cmail-form-group>
 
-                <cmail-form-group>
-                    <input cmailFormField required autofocus type="text" name="username" 
-                    class="mdl-textfield__input">
-                    <span class="mdl-textfield__error">Informar um username é obrigatório!</span>
-                </cmail-form-group>
+            <cmail-form-group [campo]="formularioDeCadastro.get('username')">
+              <input formControlName="username" cmailFormField required autofocus type="text" name="username"
+                class="mdl-textfield__input">
+              <span class="mdl-textfield__error"
+                *ngIf="formularioDeCadastro.get('username').getError('required')">Informar um username é
+                obrigatório!</span>
+              <span class="mdl-textfield__error" *ngIf="formularioDeCadastro.get('username').errors?.pattern">Informar
+                letras maiusculas!</span>
+            </cmail-form-group>
 
-                <cmail-form-group>
-                    <input cmailFormField required autofocus type="password" name="senha" 
-                    class="mdl-textfield__input">
-                    <span class="mdl-textfield__error">Informar um senha é obrigatório!</span>
-                </cmail-form-group>
-                
-                <cmail-form-group>
-                    <input cmailFormField autofocus type="text" name="avatar"
-                    class="mdl-textfield__input">
-                </cmail-form-group>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-                Cadastrar
-              </button>
-            </div>
-          </form>
-        </div>
+            <cmail-form-group [campo]="formularioDeCadastro.get('senha')"
+              *ngIf="formularioDeCadastro.get('senha').getError('required')">
+              <input formControlName="senha" cmailFormField required autofocus type="password" name="senha"
+                class="mdl-textfield__input">
+              <span class="mdl-textfield__error" *ngIf="formularioDeCadastro.get('senha').getError('required')">Informar
+                um senha é obrigatório!</span>
+            </cmail-form-group>
+
+            <cmail-form-group [campo]="formularioDeCadastro.get('avatar')">
+              <input formControlName="avatar" cmailFormField autofocus type="text" name="avatar"
+                class="mdl-textfield__input">
+            </cmail-form-group>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+              Cadastrar
+            </button>
+          </div>
+        </form>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+</div>
