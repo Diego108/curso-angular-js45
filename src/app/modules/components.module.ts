@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CaixaDeEntradaComponent } from './caixa-de-entrada/caixa-de-entrada.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { LoginComponent } from './login/login.component';
 import { FormGroupComponent } from '../components/form-group/form-group.component';
-
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { FormGroupComponent } from '../components/form-group/form-group.componen
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     CaixaDeEntradaComponent,
